@@ -36,4 +36,33 @@ wp-admin, wp-includes, and the .php files here are considered the Core files.  W
 
 These are the default themes that come with a WordPress install.
 
-Take a break at this point and activate one of these themes
+Take a break at this point and make sure your local install is working correctly by going to the frontend and poking around.  If the theme is loading at all we should be good to go.
+
+##What a theme needs to come alive
+When building a stand alone theme you'll need 3 files to get started.
+
+1. style.css ( your main styles and where your theme is defined )
+2. functions.php ( base file for functionality )
+3. index.php ( the default page for the frontend )
+
+Let's take a look at twentyfifteen's style.css to give us an idea of what we need. The top ofthe file should look like:
+
+```/*
+Theme Name: Twenty Fifteen
+Theme URI: https://wordpress.org/themes/twentyfifteen/
+Author: the WordPress team
+Author URI: https://wordpress.org/
+Description: Our 2015 default theme is clean, blog-focused, and designed for clarity. Twenty Fifteen's simple, straightforward typography is readable on a wide variety of screen sizes, and suitable for multiple languages. We designed it using a mobile-first approach, meaning your content takes center-stage, regardless of whether your visitors arrive by smartphone, tablet, laptop, or desktop computer.
+Version: 1.3
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: black, blue, gray, pink, purple, white, yellow, dark, light, two-columns, left-sidebar, fixed-layout, responsive-layout, accessibility-ready, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, microformats, post-formats, rtl-language-support, sticky-post, threaded-comments, translation-ready
+Text Domain: twentyfifteen
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/```
+
+Now humor me for a second and activate the twentyfifteen theme if it is not already. Ok, now go back the twentyfifteen/style.css and change `Theme Name: Twenty Fifteen` to `Theme Name: My cool theme`. Save the file the head back over to appearances > themes - Hazza! the name displayed here should now be `My cool theme` - this is what I am referring to above when I said `...and where your theme is defined`.
+
+You can take some time to look at functions.php and index.php now if you like but we will be doing things slightly differently as we begin to build.
