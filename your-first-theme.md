@@ -1,4 +1,4 @@
-#Your First Theme
+#Your First Theme - Part 1
 
 First things first, this post will be about creating a pretty simple WordPress theme.  One assuption that I am going to make is that you have a local environment up and running - this is crutial to anyone that want's to work with code because you ( and I ) will break things :) A second assumption I am making is that you already know how to install themes and plugins, navigate the admin area, work with menus, and make content changes - if this does not describe you take some time to learn these topics and come back when you are comfortable navigating the admin of a theme you dont really know.
 
@@ -82,3 +82,16 @@ Awesome you just activated your theme! let's go look at it by going to frontend.
 Annnndddddd White Screen! you scream - "Damnit Dan, what did you do!?!?!"
 
 But don't fret, let's go over to your index.php file simply type "This will work", save the file and refresh your site :) See? nothing is broken, it's just that we have not built anything yet.
+
+For the rest of these posts we will be mostly looking at the backend and some basic structure on the frontend to display data.  We are not going to be worried about styling for the most part as that will be up to you once we have all the data being spit out on the frontend.
+
+##lets get some data to work with
+Because we dont like wasting time we are going to use the WordPress Theme Unit Testing Data XML file.  This data is designed to test everything that WordPress comes baked in with which you should account for in your styles.
+
+Head over to https://wpcom-themes.svn.automattic.com/demo/theme-unit-test-data.xml ( yes it is just a white page with some xml text ), select everything on the page, create a new file and paste this data. Save this new file as a .xml ( i.e. wordpress-data.xml ) to your desktop as it is not actually part of our theme.  Once this is done head over to Tools > Import in your local install and select 'WordPress' ( you may be prompted to install the WordPress Importer plugin - if so, please do ).
+
+You should now now be at a page where you can select the xml we just saved an import it, you dont need to do anything with the author options that you will see but DO check the box to upload images.
+
+Now lets go over to Posts and you should see a bunch of new posts that you just imported :) For our sanity find the post titled "Template: Sticky - Sticky" and delete it ( just trust me on this one ).
+
+This is where we'll stop for now.  In my next post we will add a few more template files and start looking at WP_Query to spit out some data on the front end.
