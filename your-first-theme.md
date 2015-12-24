@@ -79,6 +79,6 @@ Now when we goto appearances > themes you should see <your-theme-name> as an opt
 
 Awesome you just activated your theme! let's go look at it by going to frontend.
 
-Annnndddddd White Screen! you screen "Damnit Dan, what did you do!?!?!"
+Annnndddddd White Screen! you scream - "Damnit Dan, what did you do!?!?!"
 
 But don't fret, let's go over to your index.php file simply type "This will work", save the file and refresh your site :) See? nothing is broken, it's just that we have not built anything yet.
