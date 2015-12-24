@@ -65,6 +65,20 @@ Use it to make something cool, have fun, and share what you've learned with othe
 */
 ```
 
-Now humor me for a second and activate the twentyfifteen theme if it is not already. Ok, now go back the twentyfifteen/style.css and change `Theme Name: Twenty Fifteen` to `Theme Name: My cool theme`. Save the file the head back over to appearances > themes - Hazza! the name displayed here should now be `My cool theme` - this is what I am referring to above when I said `...and where your theme is defined`.
+Now humor me for a second and activate the twentyfifteen theme if it is not already. Ok, now go back the twentyfifteen/style.css and change `Theme Name: Twenty Fifteen` to `Theme Name: My cool theme`. Save the, file the head back over to appearances > themes, and Hazza! the name displayed here should now be `My cool theme` - this is what I am referring to above when I said `...and where your theme is defined`.
 
 You can take some time to look at functions.php and index.php now if you like but we will be doing things slightly differently as we begin to build.
+
+"Ok, Ok, that's kind of cool" you say, "but I want to build my own theme!"
+
+Fine, let's build your own theme then :)
+
+In wp-content/themes create a new directory / folder, name it something like `my-cool-theme` ( from here out I will refer to your theme directoy as `<your-theme>`, also note the directory should not have spaces in it ), and create the three files that we will need, style.css, functions.php, and index.php.  Once that is done copy and paste the above code, from the twentyfifteen style.css you just changed, and paste it at the top of <your-theme>/style.css - note: make sure to rename `Twenty Fifteen` to what you want your theme to be called.
+
+Now when we goto appearances > themes you should see <your-theme-name> as an option to active.  Go ahead and active your theme - assuming you do not get an error message, if so you probably did not create functions.php or index.php.
+
+Awesome you just activated your theme! let's go look at it by going to frontend.
+
+Annnndddddd White Screen! you screen "Damnit Dan, what did you do!?!?!"
+
+But don't fret, let's go over to your index.php file simply type "This will work", save the file and refresh your site :) See? nothing is broken, it's just that we have not built anything yet.
