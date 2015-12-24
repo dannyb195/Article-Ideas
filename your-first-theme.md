@@ -47,7 +47,8 @@ When building a stand alone theme you'll need 3 files to get started.
 
 Let's take a look at twentyfifteen's style.css to give us an idea of what we need. The top ofthe file should look like:
 
-```/*
+```
+/*
 Theme Name: Twenty Fifteen
 Theme URI: https://wordpress.org/themes/twentyfifteen/
 Author: the WordPress team
@@ -61,7 +62,8 @@ Text Domain: twentyfifteen
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
-*/```
+*/
+```
 
 Now humor me for a second and activate the twentyfifteen theme if it is not already. Ok, now go back the twentyfifteen/style.css and change `Theme Name: Twenty Fifteen` to `Theme Name: My cool theme`. Save the file the head back over to appearances > themes - Hazza! the name displayed here should now be `My cool theme` - this is what I am referring to above when I said `...and where your theme is defined`.
 
