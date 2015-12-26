@@ -11,4 +11,4 @@ A place for me to list article and post ideas - PR welcome for anything you'd li
 - in-house versus freelance pros and cons
 -- landing an in-house position
 - why coding standards matter
-- your first theme - expanded edition
+- your first theme - expanded edition - Lead Author = Dan Beil
