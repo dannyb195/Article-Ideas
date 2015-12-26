@@ -164,6 +164,8 @@ Note how the html is _outside_ of our opening and closing php tags ( <?php and ?
 
 Now refresh your site and you should see all the titles of your first 10 posts now being displayed as `<h2>` headings.
 
+This is a good place to stop for now. In our next post we will add some of our posts content as well as add to the html structure so we can get some basic styles in place.
+
 
 
 
