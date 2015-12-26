@@ -4,7 +4,7 @@ I am going to try something, I'm not sure if this has been done before but I wan
 
 We are developers, designers, UX/UI peeps, translators, etc... We work together on code in our day jobs and in our free time - so why don't we write content together as well?
 
-My idea is simple - Let's write articles together - we already have github which anyone can contibute to so this seems like a logical tool to use.
+My idea is simple - We should write articles together - we already have github which anyone can contibute to so this seems like a logical tool to use.
 
 By having multiple authors or contibutors to a How-To article, an opinion piece, or reporting on new features going into WordPress core we may be able to provide better and more rounded content to those that want it.
 
