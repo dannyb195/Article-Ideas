@@ -12,3 +12,7 @@ A place for me to list article and post ideas - PR welcome for anything you'd li
 -- landing an in-house position
 - why coding standards matter
 - your first theme - expanded edition - Lead Author = Dan Beil
+- Plugin best practices
+- Getting started with Vagrant
+- Keeping focused without schedules
+- Writing documentation that doesn't suck
