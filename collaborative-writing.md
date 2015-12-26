@@ -8,7 +8,7 @@ My idea is simple - We should write articles together - we already have github w
 
 By having multiple authors or contibutors to a How-To article, an opinion piece, or reporting on new features going into WordPress core we may be able to provide better and more rounded content to those that want it.
 
-Another benefit to this is that I offen hear "I want to write more" when speaking to my WordPress friends.  Often the barrier to not writing seems to be not having a topic, the time, the energy, etc... Taking a collaborative approach to writing may allow more people to contibute to and be involved in our community. Maybe that would simply be editing for puncuation / grammar ( no real WordPress knowledge would be needed ), suggesting new topics, or even showing a new / different way to approach a logic / code issue.
+Another benefit to this is that I often hear "I want to write more" when speaking to my WordPress friends.  Often the barrier to not writing seems to be not having a topic, the time, the energy, etc... Taking a collaborative approach to writing may allow more people to contibute to and be involved in our community. Maybe that would simply be editing for puncuation / grammar ( no real WordPress knowledge would be needed ), suggesting new topics, or even showing a new / different way to approach a logic / code issue.
 
 I have started a repo here, https://github.com/dannyb195/Article-Ideas, for anyone that may be interested in giving this a try with me.  Clearly this is experimental right now but this is what I envision:
 
