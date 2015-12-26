@@ -112,9 +112,57 @@ Let brake this down and understand what's happening:
 
 If everything has gone correct so far when you refresh your site's homepage you should now see the titles of the first 10 posts from our sample data, WordPress by default also assumes that you only want to show Published posts so and Scheduled or Draft ( or anything that is not Published ) will not be displayed.
 
+So we have a list of titles being spit out in a very ugly way currently, now lets start making our first template part that will be the block of html that contains each of our posts.
+
+Go ahead and delete `the_title();` from index.php and un-comment ( i.e. delete `//` ) from the line
+`// get_template_part( 'template-parts/post', 'loop' );`. Clearly we need to create this directory and file.  WordPress' function of `get_template_part();` starts looking for files at the root level of your theme ( i.e. at the level of where index.php is ).  This means that we will need to create a `template-parts` directory as well as the file `post-loop.php` inside of this new directory.
+
+In our code of `get_template_part( 'template-parts/post', 'loop' );` you can see that we are _passing_ 2 strings ( i.e. just text ) to this function.  The first string `template-parts/post` tells WordPress to look for `<your-theme>/template-parts/post-*.php` where `*` represents any addition string, while `loop` tells WordPress specifically to look for `post-loop.php`.
+
+Once this directory and file have been created go ahead and add `<?php the_title(); ?>` to our new template part.
+
+So now index.php looks like:
+
+```
+<?php
+get_header();
+
+if ( have_posts() ) {
+
+	// Start the loop.
+	while ( have_posts() ) {
+		// WordPress core function to set up post data
+		the_post();
+
+		// Our template which we use for each post
+		get_template_part( 'template-parts/post', 'loop' );
+	}
+	// End the loop.
+
+} else {
+	// no content template part will go here
+}
 
 
+get_footer();
+?>
+```
 
+And our new template-parts/post-loop.php so have just one line of code like:
+
+```
+<?php the_title(); ?>
+```
+
+To take this one step further lets add a html heading tag around `the_title()` like:
+
+```
+<h2><?php the_title(); ?></h2>
+```
+
+Note how the html is _outside_ of our opening and closing php tags ( <?php and ?> ).
+
+Now refresh your site and you should see all the titles of your first 10 posts now being displayed as `<h2>` headings.
 
 
 
