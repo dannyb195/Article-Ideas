@@ -27,6 +27,12 @@ Ok, this is all well and good but we need some html to make this thing actually 
 	<title></title>
 	</head>
 	<body>
+		<div class="wrapper">
+			<div class="content">
+			</div><!--end content-->
+			<footer>
+			</footer>
+		</div><!--end wrapper-->
 	</body>
 </html>
 ```
