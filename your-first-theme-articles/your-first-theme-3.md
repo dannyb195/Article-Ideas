@@ -1,6 +1,6 @@
 #Your First Theme - Part 3
 
-In part two of this series we end with having made a header.php, footer.php, and template-part/post-loop.php to show our most recent posts on index.php ( our home page ).  In this article will will and some more markup ( html ), get some basic stles in place, and take a look at writing a custom query.
+In part two of this series we end with having made a header.php, footer.php, and template-part/post-loop.php to show our most recent posts on index.php ( our home page ).  In this article will will and some more markup ( html ), get some basic styles in place, and take a look at writing a custom query.
 
 We have also skipped some very important things that WordPress needs to work correctly so let's start with these as they are super simple...
 
@@ -58,5 +58,73 @@ It is also time to start following some WordPress conventions.  WordPress themes
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 ```
 
-Here `the_ID()` will display the specific ID of ach post and `post_class` willa number of different classes to help target different post types should you want to. Go ahead and make sure everything is saved and refreash your site. Some default browser styling should now take effect due `<p>` tags that are output because of the `the_excerpt();` function that we added.
+Here `the_ID()` will display the specific ID of each post and `post_class` will display a number of different classes to help target different post types should you want to. Go ahead and make sure everything is saved and refreash your site. Some default browser styling should now take effect due `<p>` tags that are output because of the `the_excerpt();` function that we added.
+
+Ok - lets move on to doing a little styling work in style.css.  If you have not already done so go ahead and clear out any remain information for twentyfifteen, such as:
+
+```
+/*
+Theme Name: My cool theme
+Theme URI:
+Author:
+Author URI:
+Description:
+Version:
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags:
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+```
+
+You can fill this information out if you like but it is not required for us right now.
+
+Then Adding...
+
+```
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+
+.wrapper {
+	max-width: 960px;
+	margin: 0 auto;
+	padding: 0;
+}
+```
+
+Will give a basic stucture to work with but of course we haven't even added our style sheet to our header yet - so we'll do that now.
+
+The correct way to include stylesheets in WordPress is to _enqueue_ them (https://codex.wordpress.org/Function_Reference/wp_enqueue_style). We do this in functions.php which will now look like
+
+```
+<?php
+
+add_action( 'wp_enqueue_scripts', 'my_cool_theme_scripts' );
+function my_cool_theme_scripts() {
+	wp_enqueue_style( 'your-cool-theme-styles', get_stylesheet_uri() );
+}
+
+?>
+```
+
+Let translate this into english so we can see what's actually happening. First we see a function called `add_action` - this is a core part of how we work with WordPress.  Here we are sending it two arguments. The first, `wp_enqueue_scripts` is an _action hook_ - it tells WordPress _when_ to do something.  The second argument, `my_cool_theme_scripts` is the _function name_ of what we are going to do.
+
+Then you'll see the `my_cool_theme_scripts` function itself.  Don't the the word `scripts` confuse you here,  the function can really be call anything as long as it is referred to correctlyin our `add_action` call though since stylesheets and javascript scripts are typically added at the same time you will often find them enqueued in the same function.
+
+Ok, so inside our `my_cool_theme_scripts` function you'll see yet another function from WordPress Core called `wp_enqueue_style` which is also getting two arguments.  Here the first argument the _handle_ of our stylesheet, all you need to know right now about this is that it should be *unique* so it is ofter prefixed with your theme name. The second argument is the actual location of our stylesheet.  WordPress has the function `get_stylesheet_uri()' which literally look for the file `style.css` in the root of your theme - so in this case this is all we need here.
+
+If everything has gone well ( and you've saved style.css and functions.php ) when you refresh the frontend of your site you should now see our basic styles taking effect.
+
+
+
+
 
