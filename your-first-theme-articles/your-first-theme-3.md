@@ -1,6 +1,6 @@
 #Your First Theme - Part 3
 
-In part two of this series we end with having made a header.php, footer.php, and template-part/post-loop.php to show our most recent posts on index.php ( our home page ).  In this article will will and some more markup ( html ), get some basic styles in place, and take a look at writing a custom query.
+In part two of this series we end with having made a header.php, footer.php, and template-part/post-loop.php to show our most recent posts on index.php ( our home page ).  In this article will will add some more markup ( html ), get some basic styles in place, and a custom sidebar.
 
 We have also skipped some very important things that WordPress needs to work correctly so let's start with these as they are super simple...
 
@@ -123,6 +123,108 @@ Then you'll see the `my_cool_theme_scripts` function itself.  Don't the the word
 Ok, so inside our `my_cool_theme_scripts` function you'll see yet another function from WordPress Core called `wp_enqueue_style` which is also getting two arguments.  Here the first argument the _handle_ of our stylesheet, all you need to know right now about this is that it should be *unique* so it is ofter prefixed with your theme name. The second argument is the actual location of our stylesheet.  WordPress has the function `get_stylesheet_uri()' which literally look for the file `style.css` in the root of your theme - so in this case this is all we need here.
 
 If everything has gone well ( and you've saved style.css and functions.php ) when you refresh the frontend of your site you should now see our basic styles taking effect.
+
+##Sidebars!
+In these artices we will be doing things a little more custom than most - and it is because of this that we will build a custom sidebar that does not use WordPress' core widgets or any other plugins.
+
+Let us start by making room for our side bar.  In our header we open the html `<div class="content">` though since we cannot be certain that every page will require or want a sidebar this is not an appropriate place to account for the new html we need to put in place.
+
+Rather, we will add this logic to index.php as this is currently our only page template.
+
+Our first step will be updating index.php to:
+
+```
+<?php
+get_header();
+
+if ( have_posts() ) : ?>
+
+	<div class="content-left">
+		<?php
+		// Start the loop.
+		while ( have_posts() ) {
+			// WordPress core function to set up post data
+			the_post();
+
+			// Our template which we use for each post
+			get_template_part( 'template-parts/post', 'loop' );
+		}
+		// End the loop.
+		?>
+	</div>
+
+<?php else :
+	// no content template part will go here
+endif;
+
+get_footer();
+?>
+```
+
+Note that we are now using a `:` ( colon ) syntax for the `if` statment, which is ended with `endif;` rather than a closing bracket.  This is a little of my opinion - though when leaving php during a logic check ( i.e. a `if` or `while` statement ) the `:` syntax should be used and when staying within php the `{}` ( bracket ) syntax should be used. So here, because we are leaving php to add our `<div class="content-left">` we are using the `:` syntax though in our `while` statement we are not leaving php so we are using the `{}` syntax.
+
+Now let's add some css to style.css to account for where our sidebar will be:
+
+```
+.content-left {
+	width: 70%;
+	float: left;
+	background-color: #ccc;
+}
+```
+
+This should do the trick ( note: the background color is only to help us identify our divs ).
+
+Next we need to wrap our to-be sidebar in a div and create a template file for it. Updating index.php to this will work for our needs:
+
+```
+<?php
+get_header();
+
+if ( have_posts() ) : ?>
+
+	<div class="content-left">
+		<?php
+		// Start the loop.
+		while ( have_posts() ) {
+			// WordPress core function to set up post data
+			the_post();
+
+			// Our template which we use for each post
+			get_template_part( 'template-parts/post', 'loop' );
+		}
+		// End the loop.
+		?>
+	</div>
+
+	<div class="content-right">
+		<?php get_template_part( 'template-parts/sidebar', 'right' ); ?>
+	</div>
+
+<?php else :
+	// no content template part will go here
+endif;
+
+get_footer();
+
+?>
+```
+
+And your next task will be to create the file sidebar-right.php with in the template-parts directory. Feel free to add some random tedt inside this new file to make sure it is loading correctly. If it is loading you should see your random text showing below the list of our posts.
+
+Once you have the random text from sidebar-right.php showing, go ahead add add this css to style.css:
+
+```
+.content-right {
+	width: 30%;
+	float: right;
+	background-color: #bada55;
+}
+```
+
+
+
+
 
 
 
