@@ -103,7 +103,7 @@ Because we don't like wasting time, we are going to use the **WordPress Theme Un
 
 Head over to http://wptest.io. and select "Download" to get your copy (you can also see the demo if you want a preview of what we are about to install). Once this is done, head over to `Tools > Import` in your local install and select "WordPress" (you may be prompted to install the WordPress Importer plugin - if so, please do).
 
-You should now now be at a page where you can select the xml we just saved and import it. You can leave all the author options sey as their defaults, but DO check the box to upload images.
+You should now now be at a page where you can select the xml we just saved and import it. You can leave all the author options set as their defaults, but DO check the box to upload images.
 
 Now lets go over to Posts and you should see a bunch of new posts that you just imported :) *Note: For our sanity, find the post titled "Template: Sticky - Sticky" and set it to draft or put it in the trash for now (sticky posts have their own special rules when dealing with queries and it will get confusing when you are first learning - just trust me on this one).*
 
