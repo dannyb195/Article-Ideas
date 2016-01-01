@@ -39,7 +39,7 @@ But let us pause for a moment and look at what we are dealing with so far.  At t
 
 <screen shot here>
 
-`wp-admin`, `wp-includes`, and the `.php files` here are considered the **Core** files.  We will almost never be touching these (that would be considered modifying/"hacking" core) unless we need to alter or create a wp-config.php file.  Our work will happen in wp-content/themes, so navigate there now.  Here you should see something like:
+`wp-admin`, `wp-includes`, and the `.php files` here are considered the **Core** files.  We will almost never be touching these (that would be considered modifying/"hacking" core) unless we need to alter or create a `wp-config.php` file.  Our work will happen in `wp-content/themes`, so navigate there now.  Here you should see something like:
 
 ```
 - twentyfifteen
@@ -50,7 +50,7 @@ But let us pause for a moment and look at what we are dealing with so far.  At t
 
 These folders are the **default themes** that come with a WordPress install.
 
-Take a break at this point and make sure your local install is working correctly by opening your browser and going to the **frontend** (meaning how the website looks in your broswer, whichever URL is specified on your local development environment) and poking around.  If the theme is loading at all, we should be good to go.
+Take a break at this point and make sure your local install is working correctly by opening your browser and going to the **frontend** (meaning how the website looks in your broswer, on whichever URL is specified by your local development environment) and poking around.  If the theme is loading at all, we should be good to go.
 
 ##What a theme needs to come alive
 A theme needs **2 base files** to be considered operational.
@@ -60,7 +60,7 @@ A theme needs **2 base files** to be considered operational.
 
 Many themes also have `functions.php` (default file for adding functionality), but it is not necessary for a theme to exist. However, we will be including one in our theme.
 
-Let's take a look at twentyfifteen's `style.css`. Open it up in your text editor. The top ofthe file should look like:
+Let's take a look at twentyfifteen's `style.css`. Open it up in your text editor. The top of the file should look like:
 
 ```
 /*
@@ -80,15 +80,15 @@ Use it to make something cool, have fun, and share what you've learned with othe
 */
 ```
 
-Now humor me for a second and activate the twentyfifteen theme if it is not already. Ok, now take that `style.css` file (which you have open) and change `Theme Name: Twenty Fifteen` to `Theme Name: My Cool Theme`. (No, it's not generally a good idea to directly edit other people's themes, but this is just for demonstration purposes). Save the file, then head back over to Appearances > Themes, and Huzzah! the name displayed here should now be `My cool theme`. This is what I am referring to above when I said "Where your theme is defined". WordPress requires that a `style.css` exists in the root which has this special header area, and tells WordPress "This is a theme."
+Now humor me for a second and activate the Twenty Fifteen theme if it is not already. Ok, now take that `style.css` file (which you have open) and change `Theme Name: Twenty Fifteen` to `Theme Name: My Cool Theme`. (No, it's not generally a good idea to directly edit other people's themes, this is just for demonstration purposes). Save the file, then head back over to `Appearances > Themes`, and Huzzah! the name displayed here should now be `My Cool Theme`. This is what I am referring to above when I said "Where your theme is defined". WordPress requires that a `style.css` exist in the root which has this special header area, and tells WordPress "This is a theme."
 
 "Ok, Ok, that's kind of cool" you say, "but I want to build my own theme!"
 
 Fine, let's get started. :)
 
-In `wp-content/themes` create a new directory/folder, name it whatever you like, maybe `my-cool-theme` (from here out I will refer to your theme directoy as `<your-theme>` Note the directory should not have any spaces in it).  Create the three files that we will be using: `style.css`, `functions.php`, and `index.php`.  Once that is done copy the header code from the twentyfifteen `style.css` (that we just looked at), and paste it at the top of `<your-theme>/style.css` - note: make sure to rename `Twenty Fifteen` to what you want your theme to be called.
+In `wp-content/themes` create a new directory/folder, name it whatever you like, maybe `my-cool-theme` (from here out I will refer to your theme directoy as `<your-theme>` Note the directory should not have any spaces in it).  Create the three files that we will be using: `style.css`, `functions.php`, and `index.php`.  Once that is done, copy the header code from the Twenty Fifteen `style.css` (that we just looked at), and paste it at the top of `<your-theme>/style.css` - note: make sure to rename `Twenty Fifteen` to what you want your theme to be called.
 
-Now when we go to Appearances > Themes you should see `<your-theme-name>` as an option to active.  Go ahead and active your theme! (If you get an error message, check to make sure you created index.php and functions.php and that neither of them have any spaces or extra content).
+Now when we go to `Appearances > Themes` you should see `<your-theme-name>` as an option to activate.  Go ahead and activate your theme! (If you get an error message, check to make sure you created index.php and functions.php and that neither of them have any spaces or extra content)
 
 Awesome, you just activated your theme! Let's go look at it by going to the frontend.
 
@@ -103,8 +103,8 @@ Because we don't like wasting time, we are going to use the **WordPress Theme Un
 
 Head over to http://wptest.io. and select "Download" to get your copy (you can also see the demo if you want a preview of what we are about to install). Once this is done ,head over to Tools > Import in your local install and select 'WordPress' (you may be prompted to install the WordPress Importer plugin - if so, please do).
 
-You should now now be at a page where you can select the xml we just saved an import it, you can leave all the author options that you will see as their defaults, but DO check the box to upload images.
+You should now now be at a page where you can select the xml we just saved and import it. You can leave all the author options sey as their defaults, but DO check the box to upload images.
 
-Now lets go over to Posts and you should see a bunch of new posts that you just imported :) *Note: For our sanity, find the post titled "Template: Sticky - Sticky" and set it to draft or put it in the trash for now (just trust me on this one).*
+Now lets go over to Posts and you should see a bunch of new posts that you just imported :) *Note: For our sanity, find the post titled "Template: Sticky - Sticky" and set it to draft or put it in the trash for now (sticky posts have their own special rules when dealing with queries and it will get confusing when you are first learning - just trust me on this one).*
 
 This is where we'll stop for now.  In my next post we will add a few more template files and start looking at `WP_Query` to spit out some data on the front end.
