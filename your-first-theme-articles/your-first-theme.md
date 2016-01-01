@@ -18,10 +18,10 @@ Should you not have a local environment, take a look at these links to get start
 Now, if you are new to development, you've probably spent the better part of your day getting your local environment up and running, probably swore a lot, and want to go all 'Office Space' on your computer.  This is ok - feel free to take a break and come back to this post later - it's not going anywhere. ;)
 
 ##Code editors
-If you are going to be writing code, you're going to need a text/code editor.  If you don't have one currently, head over to http://www.sublimetext.com/2 and download Sublime Text - it's free (though it will bug you for a donation every 10 saves or so).  Personally, I use Sublime Text everyday and love it. You'll also hear of developers using PHPStorm or Coda - both of which have their benefits. We don't need to discuss the merits of text editors vs IDEs right now - a feature-rich text editor like Sublime Text will be more than enough for what we are doing during this series.
+If you are going to be writing code, you're going to need a **text/code editor**.  If you don't have one currently, head over to http://www.sublimetext.com/2 and download Sublime Text - it's free (though it will bug you for a donation every 10 saves or so).  Personally, I use Sublime Text everyday and love it. You'll also hear of developers using PHPStorm or Coda - both of which have their benefits. We don't need to discuss the merits of text editors vs IDEs right now - a feature-rich text editor like Sublime Text will be more than enough for what we are doing during this series.
 
 ##Why am I not starting with a child theme?
-A Child Theme refers to a theme that is dependent on a Parent Theme for operation, it cannot exist on its own. The advantage is that it lets you modify the Parent Theme without altering it, so if the Parent Theme updates, you will not lose your changes.
+A **Child Theme** refers to a theme that is dependent on a Parent Theme for operation, it cannot exist on its own. The advantage is that it lets you modify the Parent Theme without altering it, so if the Parent Theme updates, you will not lose your changes.
 
 Child themes work by containing template and style files that override the equivalent files in the Parent Theme, or extend the Parent Theme with new files.  They fall back to using a Parent Theme's code and layout for templates/styles not defined in the Child Theme.  This could be as simple as just adding a few new items to a stylesheet to override a Parent Theme's CSS, or it could be complex with dozens of new templates, scripts, functions, etc. 
 
@@ -39,7 +39,7 @@ But let us pause for a moment and look at what we are dealing with so far.  At t
 
 <screen shot here>
 
-wp-admin, wp-includes, and the .php files here are considered the Core files.  We will almost never be touching these (that would be considered modifying/"hacking" core) unless we need to alter or create a wp-config.php file.  Our work will happen in wp-content/themes, so navigate there now.  Here you should see something like:
+`wp-admin`, `wp-includes`, and the `.php files` here are considered the **Core** files.  We will almost never be touching these (that would be considered modifying/"hacking" core) unless we need to alter or create a wp-config.php file.  Our work will happen in wp-content/themes, so navigate there now.  Here you should see something like:
 
 ```
 - twentyfifteen
@@ -48,12 +48,12 @@ wp-admin, wp-includes, and the .php files here are considered the Core files.  W
 - index.php
 ```
 
-These folders are the default themes that come with a WordPress install.
+These folders are the **default themes** that come with a WordPress install.
 
-Take a break at this point and make sure your local install is working correctly by opening your browser and going to the frontend (meaning how the website looks in your broswer, whichever URL is specified on your local development environment) and poking around.  If the theme is loading at all, we should be good to go.
+Take a break at this point and make sure your local install is working correctly by opening your browser and going to the **frontend** (meaning how the website looks in your broswer, whichever URL is specified on your local development environment) and poking around.  If the theme is loading at all, we should be good to go.
 
 ##What a theme needs to come alive
-A theme needs 2 core files to be considered operational.
+A theme needs **2 base files** to be considered operational.
 
 1. `style.css` (your main styles and where your theme is defined)
 2. `index.php` (the default template for displaying content on the frontend)
@@ -86,9 +86,9 @@ Now humor me for a second and activate the twentyfifteen theme if it is not alre
 
 Fine, let's get started. :)
 
-In wp-content/themes create a new directory / folder, name it whatever you like, maybe `my-cool-theme` (from here out I will refer to your theme directoy as `<your-theme>` Note the directory should not have any spaces in it) Create the three files that we will be using: `style.css`, `functions.php`, and `index.php`.  Once that is done copy the header code from the twentyfifteen `style.css` (that we just looked at), and paste it at the top of `<your-theme>/style.css` - note: make sure to rename `Twenty Fifteen` to what you want your theme to be called.
+In `wp-content/themes` create a new directory/folder, name it whatever you like, maybe `my-cool-theme` (from here out I will refer to your theme directoy as `<your-theme>` Note the directory should not have any spaces in it).  Create the three files that we will be using: `style.css`, `functions.php`, and `index.php`.  Once that is done copy the header code from the twentyfifteen `style.css` (that we just looked at), and paste it at the top of `<your-theme>/style.css` - note: make sure to rename `Twenty Fifteen` to what you want your theme to be called.
 
-Now when we goto appearances > themes you should see `<your-theme-name>` as an option to active.  Go ahead and active your theme! (If you get an error message, check to make sure you created index.php and functions.php).
+Now when we go to Appearances > Themes you should see `<your-theme-name>` as an option to active.  Go ahead and active your theme! (If you get an error message, check to make sure you created index.php and functions.php and that neither of them have any spaces or extra content).
 
 Awesome, you just activated your theme! Let's go look at it by going to the frontend.
 
@@ -96,15 +96,15 @@ Annnndddddd White Screen! you scream - "Damnit Dan, what did you do!?!?!"
 
 Don't fret, nothing is broken. We may have a theme, but it's not doing anything yet. Let's go over to your index.php file and simply type "This will work", save the file and refresh your site :) You should see the words you just typed, everything is working just fine!
 
-For the rest of these posts, we will be mostly looking at the backend (the directories and theme files where your theme code lives) and setting up some basic structure on the frontend to display data.  We are not going to be worried about styling for the most part, as that will be up to you once your theme is outputting the data you want.
+For the rest of these posts, we will be mostly looking at the **backend** (the directories and theme files where your theme code lives) and setting up some basic structure on the frontend to display data.  We are not going to be worried about styling for the most part, as that will be up to you once your theme is outputting the data you want.
 
 ##Let's get some data to work with
-Because we don't like wasting time, we are going to use the WordPress Theme Unit Testing Data XML file.  This data is designed to test every capability and content type that comes baked in to WordPress, which is a good idea to account for in your theme.
+Because we don't like wasting time, we are going to use the **WordPress Theme Unit Testing Data** XML file.  This data is designed to test every capability and content type that comes baked in to WordPress, which is a good idea to account for in your theme.
 
 Head over to http://wptest.io. and select "Download" to get your copy (you can also see the demo if you want a preview of what we are about to install). Once this is done ,head over to Tools > Import in your local install and select 'WordPress' (you may be prompted to install the WordPress Importer plugin - if so, please do).
 
 You should now now be at a page where you can select the xml we just saved an import it, you can leave all the author options that you will see as their defaults, but DO check the box to upload images.
 
-Now lets go over to Posts and you should see a bunch of new posts that you just imported :) Note: For our sanity, find the post titled "Template: Sticky - Sticky" and set it to draft or put it in the trash for now (just trust me on this one).
+Now lets go over to Posts and you should see a bunch of new posts that you just imported :) *Note: For our sanity, find the post titled "Template: Sticky - Sticky" and set it to draft or put it in the trash for now (just trust me on this one).*
 
 This is where we'll stop for now.  In my next post we will add a few more template files and start looking at `WP_Query` to spit out some data on the front end.
