@@ -101,7 +101,7 @@ For the rest of these posts, we will be mostly looking at the **backend** (the d
 ##Let's get some data to work with
 Because we don't like wasting time, we are going to use the **WordPress Theme Unit Testing Data** XML file.  This data is designed to test every capability and content type that comes baked in to WordPress, which is a good idea to account for in your theme.
 
-Head over to http://wptest.io. and select "Download" to get your copy (you can also see the demo if you want a preview of what we are about to install). Once this is done ,head over to Tools > Import in your local install and select 'WordPress' (you may be prompted to install the WordPress Importer plugin - if so, please do).
+Head over to http://wptest.io. and select "Download" to get your copy (you can also see the demo if you want a preview of what we are about to install). Once this is done, head over to `Tools > Import` in your local install and select "WordPress" (you may be prompted to install the WordPress Importer plugin - if so, please do).
 
 You should now now be at a page where you can select the xml we just saved and import it. You can leave all the author options sey as their defaults, but DO check the box to upload images.
 
