@@ -16,3 +16,4 @@ A place for me to list article and post ideas - PR welcome for anything you'd li
 - Getting started with Vagrant
 - Keeping focused without schedules
 - Writing documentation that doesn't suck
+- I like clean code
