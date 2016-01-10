@@ -37,8 +37,6 @@ But let us pause for a moment and look at what we are dealing with so far.  At t
 - a bunch of .php files
 ```
 
-<screen shot here>
-
 `wp-admin`, `wp-includes`, and the `.php files` here are considered the **Core** files.  We will almost never be touching these (that would be considered modifying/"hacking" core) unless we need to alter or create a `wp-config.php` file.  Our work will happen in `wp-content/themes`, so navigate there now.  Here you should see something like:
 
 ```
@@ -80,7 +78,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
 */
 ```
 
-Now humor me for a second and activate the Twenty Fifteen theme if it is not already. Ok, now take that `style.css` file (which you have open) and change `Theme Name: Twenty Fifteen` to `Theme Name: My Cool Theme`. (No, it's not generally a good idea to directly edit other people's themes, this is just for demonstration purposes). Save the file, then head back over to `Appearances > Themes`, and Huzzah! the name displayed here should now be `My Cool Theme`. This is what I am referring to above when I said "Where your theme is defined". WordPress requires that a `style.css` exist in the root which has this special header area, and tells WordPress "This is a theme."
+Now humor me for a second and activate the Twenty Fifteen theme if it is not already. Ok, now take that `style.css` file (which you have open) and change `Theme Name: Twenty Fifteen` to `Theme Name: My Cool Theme`. (No, it's not generally a good idea to directly edit other people's themes, this is just for demonstration purposes). Save the file, then head back over to <span class="lang:default decode:true crayon-inline ">Appearances > Themes</span>, and Huzzah! the name displayed here should now be `My Cool Theme`. This is what I am referring to above when I said "Where your theme is defined". WordPress requires that a `style.css` exist in the root which has this special header area, and tells WordPress "This is a theme."
 
 "Ok, Ok, that's kind of cool" you say, "but I want to build my own theme!"
 
@@ -88,7 +86,7 @@ Fine, let's get started. :)
 
 In `wp-content/themes` create a new directory/folder, name it whatever you like, maybe `my-cool-theme` (from here out I will refer to your theme directoy as <span class="lang:default decode:true crayon-inline "><your-theme></span> Note the directory should not have any spaces in it).  Create the three files that we will be using: `style.css`, `functions.php`, and `index.php`.  Once that is done, copy the header code from the Twenty Fifteen `style.css` (that we just looked at), and paste it at the top of <span class="lang:default decode:true crayon-inline "><your-theme>/style.css</span> - note: make sure to rename `Twenty Fifteen` to what you want your theme to be called.
 
-Now when we go to `Appearances > Themes` you should see <span class="lang:default decode:true crayon-inline "><your-theme-name></span> as an option to activate.  Go ahead and activate your theme! (If you get an error message, check to make sure you created index.php and functions.php and that neither of them have any spaces or extra content)
+Now when we go to <span class="lang:default decode:true crayon-inline ">Appearances > Themes</span> you should see <span class="lang:default decode:true crayon-inline "><your-theme-name></span> as an option to activate.  Go ahead and activate your theme! (If you get an error message, check to make sure you created index.php and functions.php and that neither of them have any spaces or extra content)
 
 Awesome, you just activated your theme! Let's go look at it by going to the frontend.
 
@@ -101,7 +99,7 @@ For the rest of these posts, we will be mostly looking at the **backend** (the d
 ##Let's get some data to work with
 Because we don't like wasting time, we are going to use the **WordPress Theme Unit Testing Data** XML file.  This data is designed to test every capability and content type that comes baked in to WordPress, which is a good idea to account for in your theme.
 
-Head over to http://wptest.io. and select "Download" to get your copy (you can also see the demo if you want a preview of what we are about to install). Once this is done, head over to `Tools > Import` in your local install and select "WordPress" (you may be prompted to install the WordPress Importer plugin - if so, please do).
+Head over to http://wptest.io. and select "Download" to get your copy (you can also see the demo if you want a preview of what we are about to install). Once this is done, head over to <span class="lang:default decode:true crayon-inline ">Tools > Import</span> in your local install and select "WordPress" (you may be prompted to install the WordPress Importer plugin - if so, please do).
 
 You should now now be at a page where you can select the xml we just saved and import it. You can leave all the author options set as their defaults, but DO check the box to upload images.
 
