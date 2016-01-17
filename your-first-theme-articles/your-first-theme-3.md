@@ -2,7 +2,7 @@
 
 In part 2 of this series we ended having made a header.php, footer.php, and template-part/post-loop.php to show our most recent posts on index.php using The Loop.  In this article we'll work on displaying some additional useful WordPress data within The Loop, adding a sidebar, and create additional markup and styles for structure.
 
-In the interest of diving right into displaying your content, we have also skipped some very important things that WordPress is looking for in order to get important style and functionality into our theme. We want to add `wp_head()` and `wp_footer()`, which are known as action hooks. We'll talk about the concept of hooks much later, but for now what you need to know is that these specific hooks enable themes, plugins, and WordPress Core to output content into the header and footer, respectively. Luckily, it's very simple to include them now:
+In the interest of diving right into displaying your content, we also skipped some very important elements that WordPress is looking for. We want to add `wp_head()` and `wp_footer()`, which are known as action hooks. We'll talk about the concept of hooks later, but for now what you need to know is that these specific hooks enable themes, plugins, and WordPress Core to output content into the header and footer, respectively. Luckily, it's very simple to include them now:
 
 First open up your `header.php` file and find the the closing `</head>` tag.  Just before this tag we are going to add the php function `wp_head()` so `header.php` should now look like:
 
@@ -18,7 +18,7 @@ First open up your `header.php` file and find the the closing `</head>` tag.  Ju
 			<div class="content">
 ```
 
-`wp_head()` allows themes, plugins, and WordPress Core to add links, scripts, and other output to the header.  If you've noticed in your browser inspector, while we do have a style.css file, it is not actually being called or used in our HTML markup yet - but don't worry, we'll be getting to that today.
+`wp_head()` allows themes, plugins, and WordPress Core to add links, scripts, and other output to the header.  If you've noticed in your browser inspector, while we do have a `style.css` file, it is not actually being called or used in our HTML markup yet - but don't worry, we'll be getting to that today.
 
 Similar to 'wp_head()', there is also the `wp_footer()` function, which I'm sure you hvae already guessed goes in `footer.php`. Open this and add it right before the closing `</body>` tag, and your file will now look like:
 
@@ -36,7 +36,7 @@ Similar to 'wp_head()', there is also the `wp_footer()` function, which I'm sure
 
 
 ##Adding markup within the loop
-Let us turn our attention back to template-parts/post-loop.php which currently only has `<h2><?php the_title(); ?></h2>` in it. Remember, this is the content inside our Loop, which it output for each post we have. We probably want to display something besides the title, perhaps we want to show who wrote each post and a short excerpt of the content.  In anticipation of our new content, let's give it some basic markup so we can target it with styles later. We'll start by wrapping everything in an `<article>` tag as well as adding two more empty `<divs>` under the `<h2>` title - give the first `<div>` the class of `author` and the second the class of `post-content`.  The file show now look like:
+Let us turn our attention back to template-parts/post-loop.php which currently only has `<h2><?php the_title(); ?></h2>` in it. Remember, this is the content inside our Loop, which is output for each post we have. We probably want to display something besides the title, perhaps we want to show who wrote each post and the post content itself.  In anticipation of our new content, let's give it some basic markup so we can target it with styles later. We'll start by wrapping everything in an `<article>` tag as well as adding two more empty `<divs>` under the `<h2>` title - give the first `<div>` the class of `author` and the second the class of `post-content`.  The file should now look like:
 
 ```
 <article class="post-archive">
@@ -64,12 +64,12 @@ WordPress also has some very handy helper functions that will be beneficial when
 
 Here `the_ID()` will display the specific ID of each post. `post_class()` creates the `class=` and displays a number of automatically generated classes WordPress creates to target different post types. If you want to add your own specific class to the output, you can put them inside the function like so: `<?php post_class( 'myclassname' ); ?>`. 
 
-Go ahead and make sure everything is saved and refreash your site. Some default browser styling should now take effect due to the `<p>` tags that `the_content()` function automatically adds to your content.
+Go ahead and make sure everything is saved and refreash your site. Some default browser styling should now take effect due to the `<p>` tags that `the_content()` function automatically adds to your content. Take a look in the browser inspector to see the IDs and classes that WordPress has added to each article.
 
 ##Enqueue stylesheets: our first look at actions
 Ok - lets move on to doing a little styling work. First of all, we need to make sure WordPress recognizes that we have a stylesheet and knows where to use it. This will take advantage of the `wp_head()` function we added earlier.
 
-The correct way to include stylesheets in WordPress is to _enqueue_ them (https://codex.wordpress.org/Function_Reference/wp_enqueue_style). We do this by adding a function to `functions.php` as seen below:
+The correct way to include stylesheets in WordPress is to [enqueue](https://codex.wordpress.org/Function_Reference/wp_enqueue_style) them . We do this by adding a function to `functions.php` as seen below:
 
 ```
 <?php
@@ -86,7 +86,7 @@ function my_cool_theme_scripts() {
 
 Let's break this down so we can see what's actually happening. 
 
-First we see a function called `add_action` - this is a core part of how we work with WordPress, and our first experience hooking onto an action event. We are basically telling WordPress "When this action happens, add the stuff from my function here as well."
+First we see a function called `add_action` - this is a core part of how we work with WordPress, and our first experience hooking onto an action event. We are basically telling WordPress "When the specified action happens, add the stuff from my function here as well."
 
 We send `add_action` two arguments. The first, `wp_enqueue_scripts` is the name of an existing _action hook_ or a place where WordPress expects stuff to happen.  The second argument, `my_cool_theme_scripts` is the _function name_ containing what we are going to do (which we see referenced below).  
 
