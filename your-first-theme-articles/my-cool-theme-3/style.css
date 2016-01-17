@@ -1,10 +1,10 @@
 /*
 Theme Name: My cool theme
-Theme URI:
+Theme URI: 
 Author:
 Author URI:
-Description:
-Version:
+Description: 
+Version: 
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags:
@@ -28,11 +28,10 @@ body {
 	margin: 0 auto;
 	padding: 0;
 	overflow: auto;
-
 }
 
 .content {
-	overflow:auto;
+	overflow: auto;
 	margin: 20px 0;
 }
 
@@ -41,12 +40,12 @@ h2 {
 }
 
 .author {
-	font-style:italic;
+	font-style: italic;
 }
 
 article {
 	border-bottom: 1px solid #eee;
-	margin-bottom:20px;
+	margin-bottom: 20px;
 }
 
 .content-left {

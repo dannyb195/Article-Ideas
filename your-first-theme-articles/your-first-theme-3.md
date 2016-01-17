@@ -1,6 +1,6 @@
 #Your First Theme - Part 3
 
-In part 2 of this series we ended having made a header.php, footer.php, and template-part/post-loop.php to show our most recent posts on index.php using The Loop.  In this article we'll work on displaying some additional useful WordPress data within The Loop, adding a sidebar, and create additional markup and styles for structure.
+In part 2 of this series we ended having made a `header.php`, `footer.php`, and `template-part/post-loop.php` to show our most recent posts on `index.php` using The Loop.  In this article we'll work on displaying some additional useful WordPress data within The Loop, adding a sidebar, and create additional markup and styles for structure.
 
 In the interest of diving right into displaying your content, we also skipped some very important elements that WordPress is looking for. We want to add `wp_head()` and `wp_footer()`, which are known as action hooks. We'll talk about the concept of hooks later, but for now what you need to know is that these specific hooks enable themes, plugins, and WordPress Core to output content into the header and footer, respectively. Luckily, it's very simple to include them now:
 
@@ -20,7 +20,7 @@ First open up your `header.php` file and find the the closing `</head>` tag.  Ju
 
 `wp_head()` allows themes, plugins, and WordPress Core to add links, scripts, and other output to the header.  If you've noticed in your browser inspector, while we do have a `style.css` file, it is not actually being called or used in our HTML markup yet - but don't worry, we'll be getting to that today.
 
-Similar to 'wp_head()', there is also the `wp_footer()` function, which I'm sure you hvae already guessed goes in `footer.php`. Open this and add it right before the closing `</body>` tag, and your file will now look like:
+Similar to `wp_head()`, there is also the `wp_footer()` function, which I'm sure you hvae already guessed goes in `footer.php`. Open this and add it right before the closing `</body>` tag, and your file will now look like:
 
 ```
 			</div><!--end content-->
@@ -36,7 +36,7 @@ Similar to 'wp_head()', there is also the `wp_footer()` function, which I'm sure
 
 
 ##Adding markup within the loop
-Let us turn our attention back to template-parts/post-loop.php which currently only has `<h2><?php the_title(); ?></h2>` in it. Remember, this is the content inside our Loop, which is output for each post we have. We probably want to display something besides the title, perhaps we want to show who wrote each post and the post content itself.  In anticipation of our new content, let's give it some basic markup so we can target it with styles later. We'll start by wrapping everything in an `<article>` tag as well as adding two more empty `<divs>` under the `<h2>` title - give the first `<div>` the class of `author` and the second the class of `post-content`.  The file should now look like:
+Let us turn our attention back to `template-parts/post-loop.php` which currently only has `<h2><?php the_title(); ?></h2>` in it. Remember, this is the content inside our Loop, which is output for each post we have. We probably want to display something besides the title, perhaps we want to show who wrote each post and the post content itself.  In anticipation of our new content, let's give it some basic markup so we can target it with styles later. We'll start by wrapping everything in an `<article>` tag as well as adding two more empty `<divs>` under the `<h2>` title - give the first `<div>` the class of `author` and the second the class of `post-content`.  The file should now look like:
 
 ```
 <article class="post-archive">
@@ -59,10 +59,10 @@ When you refresh your page, you should now see a list of titles, authors, and th
 WordPress also has some very handy helper functions that will be beneficial when we want to target these elements with CSS or JavaScript.  WordPress themes typically allow us to target content via unique classes that each page or post has.  To allow for this we will update the opening `<article>` tag to look like:
 
 ```
-<article class="post-archive" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'post-archive' ); ?>>
 ```
 
-Here `the_ID()` will display the specific ID of each post. `post_class()` creates the `class=` and displays a number of automatically generated classes WordPress creates to target different post types. If you want to add your own specific class to the output, you can put them inside the function like so: `<?php post_class( 'myclassname' ); ?>`. 
+Here `the_ID()` will display the specific ID of each post. `post_class()` creates the `class=` and displays a number of automatically generated classes WordPress creates to target different post types. Because we added our own specific class to the output, we put it inside the function like so: `<?php post_class( 'post-archive' ); ?>`. 
 
 Go ahead and make sure everything is saved and refreash your site. Some default browser styling should now take effect due to the `<p>` tags that `the_content()` function automatically adds to your content. Take a look in the browser inspector to see the IDs and classes that WordPress has added to each article.
 
@@ -94,11 +94,13 @@ To think of this another way, imagine a scenario of deciding to hook a "buy milk
 
 ```
 <?php
+
 add_action( 'at_the_store', 'buy_milk' );
 
 function buy_milk() {
 	// stuff I need to do to buy milk here
 }
+
 ?>
 ```
 
@@ -108,7 +110,7 @@ Back to our function, underneath `add_action` you see the `my_cool_theme_scripts
 
 Ok, so inside our `my_cool_theme_scripts` function you'll see yet another function from WordPress Core called `wp_enqueue_style` which is used by WordPress to add the stylesheets to the header (via `wp_head()`).  This function is also getting two arguments. 
 
-Here the first argument is the _handle_ of our stylesheet. All you need to know right now about this is that it should be *unique* so it is often prefixed (i.e. just add your theme name to the beginning of the handle). The second argument is the actual location of our stylesheet.  WordPress has another helper function `get_stylesheet_uri()' which literally looks for the file `style.css` in the root of your theme - so in this case this is all we need here.
+Here the first argument is the _handle_ of our stylesheet. All you need to know right now about this is that it should be *unique* so it is often prefixed (i.e. just add your theme name to the beginning of the handle). The second argument is the actual location of our stylesheet.  WordPress has another helper function `get_stylesheet_uri()` which literally looks for the file `style.css` in the root of your theme - so in this case this is all we need here.
 
 ##Side notes on functions.php
 This is where I start to be opinionated about _how_ themes should be built. You've noticed that I told you to add this code to `functions.php`, and you will see many other tutorials talk about placing code here. Technically, that is all correct, because all functions placed here will work as expected. However, we are not just writing code that functions correctly, we are trying to write code that is easy to edit, maintain, and update, so we should be thinking about code organization at all times.
@@ -159,11 +161,10 @@ body {
 	margin: 0 auto;
 	padding: 0;
 	overflow: auto;
-
 }
 
 .content {
-	overflow:auto;
+	overflow: auto;
 	margin: 20px 0;
 }
 ```
@@ -176,12 +177,12 @@ h2 {
 }
 
 .author {
-	font-style:italic;
+	font-style: italic;
 }
 
 article {
 	border-bottom: 1px solid #eee;
-	margin-bottom:20px;
+	margin-bottom: 20px;
 }
 ```
 
@@ -287,22 +288,23 @@ Once your `sidebar.php` file is loading correctly, we should populate it with so
 ```
 if ( ! function_exists( 'my_cool_theme_sidebar' ) ) {
 
-// Register Sidebars
-function my_cool_theme_sidebar() {
+	// Register Sidebars
+	function my_cool_theme_sidebar() {
 
-	$args = array(
-		'name'          => __( 'My Cool Sidebar', 'my_cool_theme' ),
-		'id'			=> 'my-cool-sidebar',
-		'class'         => 'sidebar',
-		'before_title'  => '<h3 class="sidebar-title">',
-		'after_title'   => '</h3>',
-		'before_widget' => '<div class="sidebar-widget">',
-		'after_widget'  => '</div>',
-	);
-	register_sidebar( $args );
+		$args = array(
+			'name'          => __( 'My Cool Sidebar', 'my_cool_theme' ),
+			'id'			=> 'my-cool-sidebar',
+			'class'         => 'sidebar',
+			'before_title'  => '<h3 class="sidebar-title">',
+			'after_title'   => '</h3>',
+			'before_widget' => '<div class="sidebar-widget">',
+			'after_widget'  => '</div>',
+		);
+		register_sidebar( $args );
 
-}
-add_action( 'widgets_init', 'my_cool_theme_sidebar' );
+	}
+
+	add_action( 'widgets_init', 'my_cool_theme_sidebar' );
 
 }
 ```
@@ -317,15 +319,16 @@ After you've got some sample widgets in place, you can return to `sidebar.php`, 
 
 if ( is_active_sidebar( 'my-cool-sidebar' ) ) {
 
-	dynamic_sidebar( 'mmy-cool-sidebar' );
+	dynamic_sidebar( 'my-cool-sidebar' );
 
 } 
+
 ?>
 ```
 
-The `dynamic_sidebar()` function tells your theme to display all of the widget content contained within the sidebar you are referencing. Themes can have multiple widgetized areas which can output content based on various rules, but for now we'll stick to just one. When you refresh, you should see those widgets inside your sidebar.
+The `dynamic_sidebar()` function tells your theme to display all of the widget content contained within the sidebar ID you are referencing. Themes can have multiple widgetized areas which can output content based on various rules, but for now we'll stick to just one. When you refresh, you should see those widgets inside your sidebar.
 
-Though sidebars are often used for widgets, we can also write our own custom functionality for content that is displayed in the sidebar. As an example, let's go back to our list of posts. We want to add another default loop above our dynamic sidebar and output some titles. In your template-parts folder, create a new file called `sidebar-content-custom.php` and update `sidebar-right.php` with a call to that template part:
+Though sidebars are often used for widgets, we can also write our own custom functionality for content that is displayed in the sidebar. As an example, let's go back to our list of posts. We want to add another default loop above our dynamic sidebar and output some titles. In your template-parts folder, create a new file called `sidebar-content-custom.php` and update `sidebar.php` with a call to that template part:
 
 ```
 <?php
@@ -337,10 +340,11 @@ if ( is_active_sidebar( 'my-cool-sidebar' ) ) {
 	dynamic_sidebar( 'my-cool-sidebar' );
 
 } 
+
 ?>
 ```
 
-Inside `sidebar-content-custom.php' place the following to output your post titles:
+Inside `sidebar-content-custom.php` place the following to output your post titles:
 
 ```
 <?php
