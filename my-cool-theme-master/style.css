@@ -1,0 +1,61 @@
+/*
+Theme Name: My cool theme
+Theme URI: http://addactiondan.me/category/your-first-theme/
+Author: add_action_dan
+Description: Learning how to build a WordPress theme from scratch
+Version: 0.1
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags:
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+
+.wrapper {
+	max-width: 960px;
+	margin: 0 auto;
+	padding: 0;
+	overflow: auto;
+}
+
+.content {
+	overflow: auto;
+	margin: 20px 0;
+}
+
+h2 {
+	color: #bada55;
+}
+
+.author {
+	font-style: italic;
+}
+
+article {
+	border-bottom: 1px solid #eee;
+	margin-bottom: 20px;
+}
+
+.content-left {
+	width: 65%;
+	float: left;
+	margin-right: 5%;
+}
+
+.content-right {
+	width: 30%;
+	float: right;
+	padding: 20px;
+	border: 1px solid #ddd;
+}
